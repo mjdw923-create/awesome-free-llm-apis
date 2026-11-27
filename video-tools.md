@@ -73,7 +73,7 @@
 ### الطريقة الأسهل بدون كود: Google AI Studio
 
 1. افتح https://aistudio.google.com وسجّل الدخول بحساب Google.
-2. اختر نموذجاً مثل Gemini 2.5 Flash، ثم ارفع الفيديو بزر ➕ أو الصق رابط يوتيوب.
+2. اختر نموذجاً مثل Gemini 3.8 Flash، ثم ارفع الفيديو بزر ➕ أو الصق رابط يوتيوب.
 3. اكتب طلبك، مثلاً: "لخّص هذا الفيديو بالعربية مع التوقيتات".
 
 ### 1) Gemini في Colab (يستخدم السر `GEMINI_KEY` الموجود في دفترك)
@@ -93,7 +93,7 @@ while video.state.name == "PROCESSING":     # انتظر انتهاء المعا
     video = client.files.get(name=video.name)
 
 r = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3.8-flash",
     contents=[video, "لخّص هذا الفيديو بالعربية واذكر أهم اللحظات مع توقيتها"],
 )
 print(r.text)
@@ -104,7 +104,7 @@ print(r.text)
 ```python
 from google.genai import types
 r = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3.8-flash",
     contents=types.Content(parts=[
         types.Part(file_data=types.FileData(file_uri="https://www.youtube.com/watch?v=VIDEO_ID")),
         types.Part(text="ما الفكرة الرئيسية لهذا الفيديو؟"),
